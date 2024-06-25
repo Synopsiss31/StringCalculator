@@ -2,7 +2,6 @@ package service;
 
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,4 +19,11 @@ public class StringServiceCalculatorTest {
         int result = stringCalculatorService.add("");
         Assertions.assertEquals(0, result);
     }
+
+    @Test
+    public void testResultOfMethodAddReturnNumberItselfIfStringIsUnique() {
+        int result = stringCalculatorService.add("1");
+        Assertions.assertEquals(1, result);
+    }
+
 }
