@@ -43,4 +43,11 @@ public class StringServiceCalculatorTest {
         int result = stringCalculatorService.add("1,2\n3");
         Assertions.assertEquals(6, result);
     }
+
+    @Test
+    public void testResultOfMethodAddReturnSumWhenStringContainsSeparatorAtEnd() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            stringCalculatorService.add("1,2,");
+        });
+    }
 }
