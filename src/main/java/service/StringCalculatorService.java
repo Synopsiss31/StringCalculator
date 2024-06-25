@@ -11,10 +11,6 @@ public class StringCalculatorService {
 
         String[] parts = numbers.split(",");
 
-        if (parts.length > 2) {
-            throw new IllegalArgumentException("Only up to two numbers can be added");
-        }
-
         try {
             int sum = 0;
             for (String part : parts) {
