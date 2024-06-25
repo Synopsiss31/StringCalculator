@@ -56,4 +56,12 @@ public class StringServiceCalculatorTest {
         int result = stringCalculatorService.add("//;\n1;3");
         Assertions.assertEquals(4, result, "Sum with ';' delimiter should be 4");
     }
+
+    @Test
+    public void testAddWithNegativeNumber() {
+        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            stringCalculatorService.add("2,-4,-9");
+        });
+        Assertions.assertEquals("Negative number(s) not allowed: -4, -9", exception.getMessage());
+    }
 }
