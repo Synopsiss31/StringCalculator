@@ -32,4 +32,10 @@ public class StringServiceCalculatorTest {
         Assertions.assertEquals(3, result);
     }
 
+    @Test
+    public void testResultOfMethodAddReturnSumWhenStringContainsManyNumbers() {
+        int result = stringCalculatorService.add("1,2,3");
+        Assertions.assertEquals(6, result);
+    }
+
 }
