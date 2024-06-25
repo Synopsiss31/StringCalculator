@@ -9,7 +9,7 @@ public class StringCalculatorService {
             return 0;
         }
 
-        String[] parts = numbers.split(",");
+        String[] parts = numbers.split("[,\n]");
 
         try {
             int sum = 0;
