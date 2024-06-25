@@ -11,6 +11,10 @@ public class StringCalculatorService {
 
         String[] parts = numbers.split("[,\n]");
 
+        if (numbers.matches(".*[,\n]$")) {
+            throw new IllegalArgumentException("Input must not end with a separator");
+        }
+
         try {
             int sum = 0;
             for (String part : parts) {
