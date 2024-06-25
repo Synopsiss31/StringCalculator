@@ -50,4 +50,10 @@ public class StringServiceCalculatorTest {
             stringCalculatorService.add("1,2,");
         });
     }
+
+    @Test
+    public void testAddWithCustomDelimiter() {
+        int result = stringCalculatorService.add("//;\n1;3");
+        Assertions.assertEquals(4, result, "Sum with ';' delimiter should be 4");
+    }
 }
