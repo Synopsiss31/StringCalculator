@@ -26,4 +26,10 @@ public class StringServiceCalculatorTest {
         Assertions.assertEquals(1, result);
     }
 
+    @Test
+    public void testResultOfMethodAddReturnSumWhenStringContainsTwoNumbers() {
+        int result = stringCalculatorService.add("1,2");
+        Assertions.assertEquals(3, result);
+    }
+
 }
