@@ -18,6 +18,16 @@ public class StringCalculatorService {
                 throw new IllegalArgumentException("Input must be a valid number", e);
             }
         }
+
+        if (parts.length == 2) {
+            try {
+                int num1 = Integer.parseInt(parts[0].trim());
+                int num2 = Integer.parseInt(parts[1].trim());
+                return num1 + num2;
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("All inputs must be valid numbers", e);
+            }
+        }
         throw new UnsupportedOperationException();
     }
 }
