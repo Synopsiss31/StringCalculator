@@ -38,4 +38,9 @@ public class StringServiceCalculatorTest {
         Assertions.assertEquals(6, result);
     }
 
+    @Test
+    public void testResultOfMethodAddReturnSumWhenStringContainsnewlines() {
+        int result = stringCalculatorService.add("1,2\n3");
+        Assertions.assertEquals(6, result);
+    }
 }
