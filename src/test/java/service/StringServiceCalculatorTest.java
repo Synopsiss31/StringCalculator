@@ -45,6 +45,13 @@ public class StringServiceCalculatorTest {
     }
 
     @Test
+    public void testResultOfMethodAddReturnSumWhenStringContainsnewlines2() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            stringCalculatorService.add("//|\\n1|2,3");
+        });
+    }
+
+    @Test
     public void testResultOfMethodAddReturnSumWhenStringContainsSeparatorAtEnd() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             stringCalculatorService.add("1,2,");
@@ -63,5 +70,13 @@ public class StringServiceCalculatorTest {
             stringCalculatorService.add("2,-4,-9");
         });
         Assertions.assertEquals("Negative number(s) not allowed: -4, -9", exception.getMessage());
+    }
+
+    @Test
+    public void testAddWithAnyDelimiter(){
+        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            stringCalculatorService.add("//|\n1|2,-3");
+        });
+        Assertions.assertEquals("Delimiters must be identical\nNegative number(s) not allowed: -3\n",exception.getMessage());
     }
 }
